@@ -36,12 +36,10 @@ server.get('/api/posts/:id', async (req, res) => {
 
 
 
-server.post('/api/posts/', async (req, res) => {
+server.post('/api/posts', async (req, res) => {
     try {
-       
-        console.log(req.body)
-        const addedPost = Posts.insert(req.body)
-        res.status(201).json()
+        const addedPost = await Posts.insert(req.body)
+        res.status(201).json({...req.body, ...addedPost})
     } catch (err) {
         res.status(500).json({
             message: "There was an error"
