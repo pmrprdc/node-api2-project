@@ -36,7 +36,6 @@ Router.get('/:id', async (req, res) => {
 
 Router.post('/', async (req, res) => {
 
-    
         const {title, contents} = req.body;
         if(!title ||!contents){
             res.status(400).json({
@@ -46,16 +45,9 @@ Router.post('/', async (req, res) => {
             const insertedPostId = await Posts.insert({title, contents})
             res.status(201).json({...req.body, ...insertedPostId})
         }
-
-    
-
-    
-   
     
 });
 
 
 
-module.exports= Router;
-
-
+module.exports = Router;
