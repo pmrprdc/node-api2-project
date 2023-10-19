@@ -3,9 +3,10 @@
 const express = require('express');
 const server = express();
 const Posts = require('./posts/posts-model')
-const Router = require('./posts/posts-router')
+const router = require('./posts/posts-router')
 server.use(express.json())
-server.use('/api/posts', Router )
+server.use('/api/posts', router )
+
 
 
 
