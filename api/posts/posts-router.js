@@ -91,6 +91,23 @@ router.delete('/:id',async (req,res)=>{
 
 })
 
+router.get('/:id/comments', async (req,res)=>{
+    try{
+        const found = await Posts.findById(req.params.id)
+        if(!found){
+            return res.status(404).json({
+                message: "does not exist"
+            })
+        }
+    }catch{
+        
+    }   res.status(500).json({
+        message: "error"
+    })
+   
+
+})
+
 
 
 
